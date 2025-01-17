@@ -11,7 +11,7 @@ def dSdt(t, S):
     C = 1.35
     beta = 4
 
-    #change H and gamma for arrythmias and HR change, respectively
+    #change H and gamma for arrhythmias and HR change, respectively
     H = 3
     gamma = 5
     x1, x2, x3, x4 = S
@@ -31,7 +31,7 @@ x4_0 = 0
 S_0 = (x1_0, x2_0, x3_0, x4_0)
 
 #solving the ODE's
-t = np.linspace(10, 20, 100000)
+t = np.linspace(0, 6, 100000)
 sol = odeint(dSdt, y0=S_0, t=t, tfirst=True)
 
 #extracting the results
@@ -51,12 +51,13 @@ EKG = alpha_1*x1_sol + alpha_2*x2_sol + alpha_3*x3_sol + alpha_4*x4_sol
 
 #wow pretty pictures :-)
 
-#plt.plot(t, x1_sol)
-#plt.plot(t, x2_sol)
+plt.plot(t, x1_sol)
+plt.plot(t, x2_sol)
 #plt.plot(t, x3_sol)
 #plt.plot(t, x4_sol)
-plt.plot(t, EKG)
+#plt.plot(t, EKG)
 plt.xlabel("Time [s]")
 plt.ylabel("Voltage [arbitrary units]")
 plt.title("A synthesised EKG signal")
-plt.savefig("myECGplot.png")
+plt.show()
+#plt.savefig("myECGplot.png")
