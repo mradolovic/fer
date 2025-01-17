@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy as sp
 
 from scipy.integrate import odeint
-from scipy.integrate import solve_ivp
 
 #rewriting the system so Python can understand it
 def dSdt(t, S):
